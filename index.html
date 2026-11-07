@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Mohamed Samir - HDD Superintendent, Steering Engineer, and Technical Office Specialist." />
+    <meta name="theme-color" content="#0c243a" />
+    <title>Mohamed Samir | HDD Superintendent</title>
+    <style>
+      :root {
+        --navy: #0c243a;
+        --navy-soft: #153852;
+        --teal: #00869a;
+        --gold: #d99a35;
+        --ink: #1d344c;
+        --muted: #587086;
+        --mist: #eef5f7;
+        --line: #d4e1e7;
+        --white: #ffffff;
+        --shadow: 0 18px 38px rgba(12, 36, 58, 0.1);
+      }
+
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body {
+        margin: 0;
+        color: var(--ink);
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        line-height: 1.6;
+        background: #f7fafb;
+      }
+
+      a { color: inherit; }
+      .shell { width: min(1140px, calc(100% - 40px)); margin: 0 auto; }
+      .eyebrow {
+        margin: 0 0 12px;
+        color: var(--teal);
+        font-size: 0.76rem;
+        font-weight: 800;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+      .section-title { margin: 0; color: var(--navy); font-size: clamp(1.7rem, 3vw, 2.45rem); line-height: 1.15; }
+      .section-line { width: 84px; height: 4px; margin: 20px 0 30px; background: var(--gold); }
+
+      .site-header {
+        position: absolute;
+        z-index: 2;
+        width: 100%;
+        padding: 23px 0;
+        color: var(--white);
+      }
+      .nav { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+      .brand { font-weight: 800; letter-spacing: 0.08em; text-decoration: none; }
+      .nav-links { display: flex; gap: 22px; font-size: 0.9rem; }
+      .nav-links a { color: rgba(255, 255, 255, 0.84); text-decoration: none; }
+      .nav-links a:hover { color: var(--white); }
+
+      .hero {
+        position: relative;
+        overflow: hidden;
+        padding: 175px 0 105px;
+        color: var(--white);
+        background: radial-gradient(circle at 88% 10%, rgba(0, 134, 154, 0.47), transparent 31%), linear-gradient(125deg, #071c2e 0%, #0c2b43 60%, #10425c 100%);
+      }
+      .hero::after {
+        position: absolute;
+        right: -6%;
+        bottom: -200px;
+        width: 610px;
+        height: 610px;
+        border: 1px solid rgba(255,255,255,0.13);
+        border-radius: 50%;
+        content: "";
+      }
+      .hero-grid { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(290px, 0.85fr); align-items: center; gap: 72px; }
+      .hero-copy { position: relative; z-index: 1; }
+      .hero h1 { max-width: 680px; margin: 0; font-size: clamp(3rem, 7vw, 5.35rem); line-height: 0.96; letter-spacing: -0.055em; }
+      .hero h1 span { display: block; color: #83d5df; }
+      .hero-role { max-width: 610px; margin: 23px 0 0; color: #d4e8ef; font-size: clamp(1rem, 2vw, 1.24rem); }
+      .hero-meta { display: flex; flex-wrap: wrap; gap: 10px 20px; margin: 27px 0 0; color: #d4e8ef; font-size: 0.91rem; }
+      .hero-meta span { display: inline-flex; align-items: center; gap: 8px; }
+      .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--gold); }
+      .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 34px; }
+      .button { display: inline-flex; align-items: center; justify-content: center; min-height: 47px; padding: 0 20px; border: 1px solid transparent; border-radius: 4px; font-weight: 750; text-decoration: none; transition: transform .2s ease, background .2s ease; }
+      .button:hover { transform: translateY(-2px); }
+      .button-primary { color: var(--navy); background: var(--gold); }
+      .button-secondary { color: var(--white); border-color: rgba(255,255,255,.45); }
+
+      .route-card { position: relative; z-index: 1; padding: 29px; border: 1px solid rgba(160, 220, 230, 0.3); background: rgba(7, 26, 43, 0.42); backdrop-filter: blur(8px); box-shadow: var(--shadow); }
+      .route-card h2 { margin: 0; font-size: 0.82rem; letter-spacing: .12em; text-transform: uppercase; color: #9ee0e8; }
+      .route-card p { margin: 11px 0 0; font-size: .91rem; color: #d5e5ec; }
+      .route-visual { height: 220px; margin: 20px 0; }
+      .route-visual svg { width: 100%; height: 100%; overflow: visible; }
+      .route-visual .ground { stroke: #91acb9; stroke-width: 3; fill: none; stroke-dasharray: 7 8; }
+      .route-visual .bore { stroke: #ffd27f; stroke-width: 7; fill: none; stroke-linecap: round; }
+      .route-visual .guide { stroke: #38c1d0; stroke-width: 2; fill: none; opacity: .8; }
+      .route-visual text { fill: #d3e8ee; font-size: 10px; font-weight: 700; letter-spacing: .08em; }
+      .route-legend { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; font-size: .78rem; color: #c4dbe3; }
+      .route-legend div { display: flex; align-items: center; gap: 8px; }
+      .swatch { width: 20px; height: 4px; border-radius: 20px; background: #ffd27f; }
+      .swatch.teal { background: #38c1d0; }
+
+      section { padding: 96px 0; }
+      .intro { background: var(--white); }
+      .intro-grid { display: grid; grid-template-columns: 1fr .9fr; gap: 84px; align-items: start; }
+      .intro-copy { margin: 0; max-width: 660px; color: #405b72; font-size: 1.08rem; }
+      .approval { padding: 29px 30px; border-left: 5px solid var(--gold); background: var(--mist); }
+      .approval small { color: var(--teal); font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
+      .approval strong { display: block; margin: 9px 0 6px; color: var(--navy); font-size: 1.28rem; }
+      .approval p { margin: 0; color: var(--muted); }
+
+      .capabilities { background: #f5f9fa; }
+      .capability-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+      .capability { min-height: 215px; padding: 27px 22px; border-top: 4px solid var(--teal); background: var(--white); box-shadow: 0 7px 20px rgba(28,56,76,.05); }
+      .capability b { display: block; margin: 0 0 13px; color: var(--teal); font-size: .8rem; letter-spacing: .08em; text-transform: uppercase; }
+      .capability p { margin: 0; color: #456076; font-size: .94rem; }
+
+      .saudi { color: var(--white); background: var(--navy); }
+      .saudi .section-title { color: var(--white); }
+      .saudi .eyebrow { color: #84dce6; }
+      .project-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 13px; }
+      .project { min-height: 235px; padding: 24px 20px; border: 1px solid rgba(172,215,224,.18); background: rgba(255,255,255,.04); }
+      .project .km { color: #80dae5; font-size: .75rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
+      .project h3 { margin: 12px 0; font-size: 1.25rem; line-height: 1.25; }
+      .project p { margin: 0; color: #c6dbe2; font-size: .91rem; }
+      .project .rig { display: block; margin-top: 20px; color: #f2c778; font-weight: 750; font-size: .88rem; }
+
+      .experience { background: var(--white); }
+      .table-wrap { overflow-x: auto; border: 1px solid var(--line); background: var(--white); }
+      table { width: 100%; min-width: 850px; border-collapse: collapse; text-align: left; }
+      thead { color: var(--white); background: var(--navy); }
+      th, td { padding: 15px 14px; border-bottom: 1px solid var(--line); font-size: .87rem; }
+      th { font-size: .72rem; letter-spacing: .07em; text-transform: uppercase; }
+      tbody tr:nth-child(even) { background: #f6f9fa; }
+      tbody tr:last-child td { border-bottom: 0; }
+      td:first-child, td:nth-child(2) { font-weight: 700; color: var(--navy); }
+
+      .expertise { background: #f5f9fa; }
+      .expertise-grid { display: grid; grid-template-columns: .95fr 1.05fr; gap: 24px; }
+      .list-card { padding: 30px; background: var(--white); border: 1px solid var(--line); }
+      .list-card h3 { margin: 0 0 15px; color: var(--navy); font-size: 1.2rem; }
+      .list-card ul { display: grid; gap: 11px; margin: 0; padding: 0; list-style: none; color: #496379; }
+      .list-card li { position: relative; padding-left: 21px; }
+      .list-card li::before { position: absolute; left: 0; top: .61em; width: 7px; height: 7px; border-radius: 50%; background: var(--gold); content: ""; }
+
+      .contact { color: var(--white); padding: 78px 0; background: linear-gradient(120deg, #0b263d, #0c4057); }
+      .contact-grid { display: flex; align-items: center; justify-content: space-between; gap: 28px; }
+      .contact .section-title { color: var(--white); }
+      .contact p { margin: 13px 0 0; color: #cfdfE6; }
+      .contact-links { display: flex; flex-wrap: wrap; gap: 11px; justify-content: flex-end; }
+      .contact-links a { padding: 12px 15px; border: 1px solid rgba(255,255,255,.32); color: var(--white); font-size: .88rem; text-decoration: none; }
+      .contact-links a:hover { background: rgba(255,255,255,.08); }
+      footer { padding: 22px 0; color: #628096; background: #071b2c; font-size: .84rem; }
+      footer .shell { display: flex; justify-content: space-between; gap: 18px; }
+
+      @media (max-width: 900px) {
+        .hero-grid, .intro-grid, .expertise-grid { grid-template-columns: 1fr; gap: 38px; }
+        .capability-grid, .project-grid { grid-template-columns: repeat(2, 1fr); }
+        .route-card { max-width: 530px; }
+      }
+      @media (max-width: 620px) {
+        .shell { width: min(100% - 30px, 1140px); }
+        .site-header { padding-top: 17px; }
+        .nav-links { display: none; }
+        .hero { padding: 128px 0 72px; }
+        section { padding: 68px 0; }
+        .capability-grid, .project-grid { grid-template-columns: 1fr; }
+        .contact-grid, footer .shell { align-items: flex-start; flex-direction: column; }
+        .contact-links { justify-content: flex-start; }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="shell nav" aria-label="Main navigation">
+        <a class="brand" href="#top">MS / HDD</a>
+        <div class="nav-links">
+          <a href="#about">About</a>
+          <a href="#saudi">Saudi Projects</a>
+          <a href="#experience">Experience</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="shell hero-grid">
+          <div class="hero-copy">
+            <p class="eyebrow" style="color:#83d5df">Civil Engineer · Saudi Arabia</p>
+            <h1 id="hero-title">MOHAMED <span>SAMIR</span></h1>
+            <p class="hero-role">HDD Superintendent · Steering Engineer · Technical Office Specialist</p>
+            <div class="hero-meta">
+              <span><i class="dot"></i> Dammam, Saudi Arabia</span>
+              <span><i class="dot"></i> 7 years of HDD experience</span>
+            </div>
+            <div class="actions">
+              <a class="button button-primary" href="assets/Mohamed_Samir_HDD_CV.pdf" download>Download CV</a>
+              <a class="button button-secondary" href="#contact">Contact Me</a>
+            </div>
+          </div>
+          <aside class="route-card" aria-label="HDD guidance illustration">
+            <h2>HDD Guidance Profile</h2>
+            <div class="route-visual">
+              <svg viewBox="0 0 360 210" role="img" aria-label="Illustration of a horizontal directional drilling bore path">
+                <path class="ground" d="M15 32 H345" />
+                <path class="guide" d="M34 52 C105 76 251 76 326 52" />
+                <path class="bore" d="M28 47 C92 64 95 170 179 170 C264 170 267 64 332 47" />
+                <circle cx="28" cy="47" r="8" fill="#38c1d0" />
+                <circle cx="332" cy="47" r="8" fill="#ffd27f" />
+                <text x="12" y="22">ENTRY</text>
+                <text x="293" y="22">EXIT</text>
+                <text x="113" y="194">PILOT BORE PROFILE</text>
+              </svg>
+            </div>
+            <div class="route-legend">
+              <div><i class="swatch"></i> HDD bore path</div>
+              <div><i class="swatch teal"></i> Guidance alignment</div>
+            </div>
+            <p>Practical steering with ParaTrack 2 (RivCross) and DigiTrack guidance systems.</p>
+          </aside>
+        </div>
+      </section>
+
+      <section id="about" class="intro">
+        <div class="shell intro-grid">
+          <div>
+            <p class="eyebrow">Professional profile</p>
+            <h2 class="section-title">Focused on controlled, reliable HDD delivery.</h2>
+            <div class="section-line"></div>
+            <p class="intro-copy">Civil Engineer with around seven years of Horizontal Directional Drilling experience across site supervision, pilot-bore steering, surveying, and technical-office engineering. Experienced on Saudi Aramco projects in Saudi Arabia, with strong planning, field coordination, and client-documentation capability.</p>
+          </div>
+          <div class="approval">
+            <small>Saudi Aramco</small>
+            <strong>Approved HDD Supervisor</strong>
+            <p>Approval documentation is available upon request.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="capabilities" aria-labelledby="capability-title">
+        <div class="shell">
+          <p class="eyebrow">Core capabilities</p>
+          <h2 class="section-title" id="capability-title">Field guidance and technical-office support.</h2>
+          <div class="section-line"></div>
+          <div class="capability-grid">
+            <article class="capability"><b>Steering &amp; guidance</b><p>ParaTrack 2 with RivCross Software, DigiTrack Falcon F5+, pilot-bore steering, soil assessment, and reamer planning.</p></article>
+            <article class="capability"><b>Technical office</b><p>AutoCAD, Civil 3D, Microsoft Office, Primavera, plans, schedules, method statements, and cost estimates.</p></article>
+            <article class="capability"><b>Surveying</b><p>Total Station, Electronic Distance Measurement, site coordinates, alignment control, and profile verification.</p></article>
+            <article class="capability"><b>Engineering support</b><p>Pull-force calculations, stress and hydro-fracture analysis, permits, reports, and client coordination.</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section id="saudi" class="saudi" aria-labelledby="saudi-title">
+        <div class="shell">
+          <p class="eyebrow">Saudi Arabia · 2026</p>
+          <h2 class="section-title" id="saudi-title">Saudi Aramco Project Experience</h2>
+          <div class="section-line"></div>
+          <div class="project-grid">
+            <article class="project"><p class="km">Dammam · KM 10</p><h3>24 in. Steel Pipe</h3><p>One HDD crossing completed over 280 m for Saudi Aramco.</p><span class="rig">XCMG · 360 ton</span></article>
+            <article class="project"><p class="km">Dammam · KM 10</p><h3>FOC Crossing</h3><p>One fiber-optic-cable crossing completed over 210 m.</p><span class="rig">XCMG · 360 ton</span></article>
+            <article class="project"><p class="km">Dammam · KM 4</p><h3>12 in. Pipe</h3><p>One HDD crossing completed over 210 m for Saudi Aramco.</p><span class="rig">XCMG · 90 ton</span></article>
+            <article class="project"><p class="km">Dammam · KM 14</p><h3>24 in. Pipe</h3><p>One HDD crossing completed over 195 m for Saudi Aramco.</p><span class="rig">XCMG · 90 ton</span></article>
+          </div>
+        </div>
+      </section>
+
+      <section id="experience" class="experience" aria-labelledby="experience-title">
+        <div class="shell">
+          <p class="eyebrow">Selected project history</p>
+          <h2 class="section-title" id="experience-title">HDD Project Experience - Egypt</h2>
+          <div class="section-line"></div>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Year</th><th>Location</th><th>Crossings</th><th>Length</th><th>Pipe / Scope</th><th>Rig</th><th>Client</th></tr></thead>
+              <tbody>
+                <tr><td>2019</td><td>Sharqia</td><td>3</td><td>700 m</td><td>42 in.</td><td>400 ton</td><td>GASCO</td></tr>
+                <tr><td>2020</td><td>Damietta</td><td>6</td><td>300 m</td><td>18 in.</td><td>60 ton</td><td>Petrojet</td></tr>
+                <tr><td>2020</td><td>El Alamein</td><td>1</td><td>650 m</td><td>36 in.</td><td>200 ton</td><td>Petroleum Pipelines Co.</td></tr>
+                <tr><td>2021</td><td>Cairo</td><td>8</td><td>150, 180 m</td><td>18 in.</td><td>60 ton</td><td>Elsewedy / Electricity Co.</td></tr>
+                <tr><td>2021</td><td>Banha</td><td>8</td><td>265 m</td><td>18 in.</td><td>60 ton</td><td>Elsewedy</td></tr>
+                <tr><td>2022</td><td>Port Said</td><td>39</td><td>150 m</td><td>18-26 in.</td><td>37 ton</td><td>Orascom</td></tr>
+                <tr><td>2022</td><td>Port Said</td><td>1</td><td>355 m</td><td>26 in. / 8 pipelines</td><td>250 ton</td><td>Suez Canal Authority</td></tr>
+                <tr><td>2023</td><td>El Alamein</td><td>1</td><td>470 m</td><td>16 in. / 3 pipelines</td><td>250 ton</td><td>GASCO</td></tr>
+                <tr><td>2023</td><td>Ismailia</td><td>1</td><td>300 m</td><td>24 in. / 6 pipelines</td><td>60 ton</td><td>Suez Canal Authority</td></tr>
+                <tr><td>2024</td><td>Ismailia</td><td>1</td><td>1,200 m</td><td>16 in. / 3 pipelines</td><td>400 ton</td><td>Petroleum Pipelines Co.</td></tr>
+                <tr><td>2024</td><td>Cairo</td><td>2</td><td>350 m</td><td>16 in. / 3 pipelines</td><td>100 ton</td><td>GASCO</td></tr>
+                <tr><td>2024</td><td>Nag Hammadi</td><td>2</td><td>1,000 m</td><td>7 x 4 in., 10 x 5 in.</td><td>250 ton</td><td>Hyundai Rotem</td></tr>
+                <tr><td>2025</td><td>Ain Sokhna</td><td>3</td><td>900 m</td><td>36 in.</td><td>250 ton</td><td>GASCO</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section class="expertise" aria-labelledby="expertise-title">
+        <div class="shell">
+          <p class="eyebrow">How I contribute</p>
+          <h2 class="section-title" id="expertise-title">Practical delivery from plan to pullback.</h2>
+          <div class="section-line"></div>
+          <div class="expertise-grid">
+            <article class="list-card"><h3>HDD &amp; Field Delivery</h3><ul><li>Review HDD drawings, specifications, and site conditions.</li><li>Prepare and monitor pilot-bore steering plans and profiles.</li><li>Coordinate drilling, reaming, pullback, and daily reporting.</li><li>Support safe execution and quality control on site.</li></ul></article>
+            <article class="list-card"><h3>Technical Office &amp; Coordination</h3><ul><li>Prepare plans, schedules, method statements, and cost estimates.</li><li>Calculate pull force, stress, and hydro-fracture risk.</li><li>Issue technical documents, permits, and client reports.</li><li>Coordinate with survey, construction, client, and consultant teams.</li></ul></article>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="contact">
+        <div class="shell contact-grid">
+          <div>
+            <p class="eyebrow" style="color:#82dce6">Contact</p>
+            <h2 class="section-title">Let's discuss your HDD project.</h2>
+            <p>Based in Dammam, Saudi Arabia · Civil Engineering, Port Said University (2019) · Very Good</p>
+          </div>
+          <div class="contact-links">
+            <a href="tel:+966582960355">+966 58 296 0355</a>
+            <a href="mailto:MohamedSamirAlRifai@gmail.com">Email Mohamed</a>
+            <a href="assets/Mohamed_Samir_HDD_CV.pdf" download>Download CV</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer><div class="shell"><span>© 2026 Mohamed Samir</span><span>HDD Engineering Portfolio</span></div></footer>
+  </body>
+</html>
