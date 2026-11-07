@@ -126,6 +126,13 @@
       .project p { margin: 0; color: #c6dbe2; font-size: .91rem; }
       .project .rig { display: block; margin-top: 20px; color: #f2c778; font-weight: 750; font-size: .88rem; }
 
+      .project-video { background: var(--white); }
+      .video-layout { display: grid; grid-template-columns: .88fr 1.12fr; gap: 44px; align-items: center; }
+      .video-copy { max-width: 450px; }
+      .video-copy p { color: #496379; font-size: 1.03rem; }
+      .video-frame { padding: 10px; background: var(--navy); box-shadow: var(--shadow); }
+      .video-frame video { display: block; width: 100%; max-height: 430px; background: #061724; }
+
       .experience { background: var(--white); }
       .table-wrap { overflow-x: auto; border: 1px solid var(--line); background: var(--white); }
       table { width: 100%; min-width: 850px; border-collapse: collapse; text-align: left; }
@@ -155,7 +162,7 @@
       footer .shell { display: flex; justify-content: space-between; gap: 18px; }
 
       @media (max-width: 900px) {
-        .hero-grid, .intro-grid, .expertise-grid { grid-template-columns: 1fr; gap: 38px; }
+        .hero-grid, .intro-grid, .expertise-grid, .video-layout { grid-template-columns: 1fr; gap: 38px; }
         .capability-grid, .project-grid { grid-template-columns: repeat(2, 1fr); }
         .route-card { max-width: 530px; }
       }
@@ -178,6 +185,7 @@
         <div class="nav-links">
           <a href="#about">About</a>
           <a href="#saudi">Saudi Projects</a>
+          <a href="#video">Project Video</a>
           <a href="#experience">Experience</a>
           <a href="#contact">Contact</a>
         </div>
@@ -263,6 +271,23 @@
             <article class="project"><p class="km">Dammam · KM 10</p><h3>FOC Crossing</h3><p>One fiber-optic-cable crossing completed over 210 m.</p><span class="rig">XCMG · 360 ton</span></article>
             <article class="project"><p class="km">Dammam · KM 4</p><h3>12 in. Pipe</h3><p>One HDD crossing completed over 210 m for Saudi Aramco.</p><span class="rig">XCMG · 90 ton</span></article>
             <article class="project"><p class="km">Dammam · KM 14</p><h3>24 in. Pipe</h3><p>One HDD crossing completed over 195 m for Saudi Aramco.</p><span class="rig">XCMG · 90 ton</span></article>
+          </div>
+        </div>
+      </section>
+
+      <section id="video" class="project-video" aria-labelledby="video-title">
+        <div class="shell video-layout">
+          <div class="video-copy">
+            <p class="eyebrow">Project crossing video</p>
+            <h2 class="section-title" id="video-title">HDD crossing execution.</h2>
+            <div class="section-line"></div>
+            <p>Field video showing the execution of an HDD crossing project.</p>
+          </div>
+          <div class="video-frame">
+            <video controls preload="metadata" aria-label="HDD crossing execution video">
+              <source src="https://raw.githubusercontent.com/MohamedAlrifai22/Mohamed-Samir-portfolio/main/whatsapp-video-2025-02-23-at-121625-pm_xPlQrUrj.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
           </div>
         </div>
       </section>
